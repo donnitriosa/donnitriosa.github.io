@@ -29,7 +29,7 @@ footer .card-text * {
 }
 
 footer .card-footer {
-    background-color: var(--background-color) !important;
+    background-color: var(--secondary-color) !important;
     padding: .8em .7em;
     border: 1px solid var(--secondary-color);
 }
