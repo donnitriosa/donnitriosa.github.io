@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>RPO, RTO, WRT, Dan MTD on Donni Triosa</title>
+    <link>http://localhost:1313/tags/rpo-rto-wrt-dan-mtd/</link>
+    <description>Recent content in RPO, RTO, WRT, Dan MTD on Donni Triosa</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 10 Mar 2024 11:05:00 +0700</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/rpo-rto-wrt-dan-mtd/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Disaster Recovery: Memahami RPO, RTO, WRT, dan MTD</title>
+      <link>http://localhost:1313/blogs/disaster-recovery/</link>
+      <pubDate>Sun, 10 Mar 2024 11:05:00 +0700</pubDate>
+      <guid>http://localhost:1313/blogs/disaster-recovery/</guid>
+      <description>&lt;h2 id=&#34;1-pendahuluan&#34;&gt;&lt;strong&gt;1. Pendahuluan&lt;/strong&gt;&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Apa itu Disaster Recovery?&lt;/strong&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Disaster Recovery (DR) adalah strategi dan proses yang digunakan untuk memulihkan sistem IT dan operasi bisnis setelah terjadi gangguan atau bencana.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Mengapa Disaster Recovery penting?&lt;/strong&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Melindungi data dan layanan kritis dari kehilangan atau downtime yang berkepanjangan.&lt;/li&gt;&#xA;&lt;li&gt;Meminimalkan dampak finansial dan operasional akibat insiden tak terduga.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;2-konsep-kunci-dalam-disaster-recovery&#34;&gt;&lt;strong&gt;2. Konsep Kunci dalam Disaster Recovery&lt;/strong&gt;&lt;/h2&gt;&#xA;&lt;p&gt;Dalam strategi Disaster Recovery, terdapat beberapa metrik utama yang digunakan untuk mengukur efektivitas pemulihan, yaitu &lt;strong&gt;RPO (Recovery Point Objective), RTO (Recovery Time Objective), WRT (Work Recovery Time), dan MTD (Maximum Tolerable Downtime).&lt;/strong&gt;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

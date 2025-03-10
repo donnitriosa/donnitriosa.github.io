@@ -305,15 +305,10 @@ header .navbar.animate {
 }
 
 #experience .nav-item .nav-link {
-    /* margin-left: -1rem; */
     background-color: #eee4da !important;
-    /* margin-right: -1.5rem; */
     padding: .5rem 1rem !important;
-    padding-left: 1rem !important;
-    padding-right: 1rem !important;
     color: var(--text-color) !important;
     border-radius: .75rem .75rem 0 0 !  important;
-    /* border: 0.5px solid var(--text-secondary-color) !important; */
     transition: none;
     cursor: pointer;
     position: relative;
@@ -322,18 +317,14 @@ header .navbar.animate {
 
 #experience .nav-item .nav-link.active {
     color: var(--text-color) !important;
-    /* color: white !important; */
-    /* border-bottom: 2px solid var(--primary-color);  */
-    /* opacity: 0.8; */
-    background-color: var(--secondary-color) !important; 
-    /* background-color: #fff !important; */
+    background-color: var(--secondary-color) !important;
     z-index: 2;
 }
 
 #experience .nav-item .nav-link.active:hover { 
-    transition: none !important;
+    /* transition: none !important; */
     background-color: #fff !important;
-    color: var(--secondary-text-color)) !important;
+    /* color: var(--secondary-text-color)) !important; */
 }
 
 #experience .nav-item .nav-link:hover {
@@ -341,6 +332,63 @@ header .navbar.animate {
     background-color: #f9e0c8 !important;
     /* opacity: 0.8; */
 }
+
+/* Responsive styles */
+@media (max-width: 991px) {
+    #experience .nav {
+      display: none;
+    }
+  
+    #experience .dropdown {
+      display: block;
+      position: relative;
+    }
+  
+    #experience .dropdown-toggle {
+      display: block;
+      width: 100%;
+      background-color: var(--secondary-color) !important;
+      color: var(--text-color) !important;
+      padding: .5rem 1rem !important;
+      border-radius: .75rem .75rem 0 0 !important;
+      border: none  !important;
+      border-bottom: 1px solid var(--primary-color) !important;
+      cursor: pointer;
+    }
+  
+    #experience .dropdown-menu {
+      display: none;
+      position: absolute;
+      width: 100%;
+      background-color: #eee4da !important;
+      border-radius: 0 0 .75 .75rem;
+      border: none !important;
+      z-index: 1;
+    }
+  
+    #experience .dropdown-menu.show {
+      display: block;
+    }
+  
+    #experience .dropdown-menu .nav-link {
+      display: block;
+      padding: .5rem 1rem !important;
+      color: var(--text-color) !important;
+      border-radius: .75rem;
+      cursor: pointer;
+    }
+  
+    #experience .dropdown-menu .nav-link:hover {
+      background-color: #f9e0c8 !important;
+    }
+  }
+  
+  /* Ensure dropdown is hidden on larger screens */
+  @media (min-width: 992px) {
+    #experience .dropdown {
+      display: none;
+    }
+  }
 
 #experience a {
     opacity: 0.9;

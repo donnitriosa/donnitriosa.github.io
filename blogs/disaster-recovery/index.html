@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head><meta charset="UTF-8">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <meta http-equiv="Accept-CH" content="DPR, Viewport-Width, Width">
@@ -42,27 +42,24 @@
           gtag('config', 'G-H7DGMSND9L');
         }
       </script>
-<meta property="og:url" content="https://donnitriosa.github.io/blogs/snmp/">
+<meta property="og:url" content="http://localhost:1313/blogs/disaster-recovery/">
   <meta property="og:site_name" content="Donni Triosa">
-  <meta property="og:title" content="How to Install SNMP in Ubuntu">
-  <meta property="og:description" content="Deskripsi SNMP adalah singkatan dari Simple Network Management Protocol, yaitu protokol standar internet untuk memantau dan mengelola perangkat jaringan. SNMP digunakan untuk berbagai perangkat jaringan, seperti router, switch, server, dan kamera CCTV.
-Manfaat SNMP SNMP memiliki beberapa manfaat, antara lain:
-Memantau kinerja jaringan Mengidentifikasi masalah Mengelola perangkat jaringan Mengontrol perangkat jaringan secara jarak jauh Mengumpulkan informasi tentang status perangkat, penggunaan sumber daya, lalu lintas jaringan, dan statistik kinerja Install &amp; Setup SNMP Install SNMP sudo apt-get update sudo apt-get install -y snmpd Cek Status snmp sudo systemctl status snmpd Setup snmp Copy configurasi default menjadi backup sudo cp /etc/snmp/snmpd.conf /etc/snmp/snmpd.conf.backup Siapkan username, password dan encryption Edit file /etc/snmp/snmpd.conf menggunakan vi atau nano sudo vi /etc/snmp/snmpd.conf Tambahkan di file /etc/snmp/snmpd.conf createUser &lt;username&gt; MD5 &lt;passwort&gt; DES &lt;encription&gt; rouser &lt;user&gt; priv setelah ditambahkan bagian snmpv3 menjadi: ############################################################## # SNMPv3 AUTHENTICATION # Note that these particular settings don&#39;t actually belong here. # They should be copied to the file /var/lib/snmp/snmpd.conf # and the passwords changed, before being uncommented in that file *only*. # Then restart the agent # createUser authOnlyUser MD5 &#34;remember to change this password&#34; # createUser authPrivUser SHA &#34;remember to change this one too&#34; DES # createUser internalUser MD5 &#34;this is only ever used internally, but still change the password&#34; createUser &lt;username&gt; MD5 &lt;passwort&gt; DES &lt;encription&gt; rouser &lt;user&gt; priv # If you also change the usernames (which might be sensible), # then remember to update the other occurances in this example config file to match. ############################################################## restart service snmp systemctl restart snmpd systemctl status snmpd">
+  <meta property="og:title" content="Disaster Recovery: Memahami RPO, RTO, WRT, dan MTD">
+  <meta property="og:description" content="1. Pendahuluan Apa itu Disaster Recovery? Disaster Recovery (DR) adalah strategi dan proses yang digunakan untuk memulihkan sistem IT dan operasi bisnis setelah terjadi gangguan atau bencana. Mengapa Disaster Recovery penting? Melindungi data dan layanan kritis dari kehilangan atau downtime yang berkepanjangan. Meminimalkan dampak finansial dan operasional akibat insiden tak terduga. 2. Konsep Kunci dalam Disaster Recovery Dalam strategi Disaster Recovery, terdapat beberapa metrik utama yang digunakan untuk mengukur efektivitas pemulihan, yaitu RPO (Recovery Point Objective), RTO (Recovery Time Objective), WRT (Work Recovery Time), dan MTD (Maximum Tolerable Downtime).">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="blogs">
-    <meta property="article:published_time" content="2024-02-26T20:42:00+07:00">
-    <meta property="article:modified_time" content="2024-02-26T20:42:00+07:00">
-    <meta property="article:tag" content="Snmp">
-    <meta property="article:tag" content="Ubuntu">
-    <meta property="article:tag" content="Installasi">
+    <meta property="article:published_time" content="2024-03-10T11:05:00+07:00">
+    <meta property="article:modified_time" content="2024-03-10T11:05:00+07:00">
+    <meta property="article:tag" content="Disaster Rocovery">
+    <meta property="article:tag" content="RPO, RTO, WRT, Dan MTD">
+    <meta property="article:tag" content="DR-Site">
+    <meta property="article:tag" content="BIA">
 
 
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="How to Install SNMP in Ubuntu">
-  <meta name="twitter:description" content="Deskripsi SNMP adalah singkatan dari Simple Network Management Protocol, yaitu protokol standar internet untuk memantau dan mengelola perangkat jaringan. SNMP digunakan untuk berbagai perangkat jaringan, seperti router, switch, server, dan kamera CCTV.
-Manfaat SNMP SNMP memiliki beberapa manfaat, antara lain:
-Memantau kinerja jaringan Mengidentifikasi masalah Mengelola perangkat jaringan Mengontrol perangkat jaringan secara jarak jauh Mengumpulkan informasi tentang status perangkat, penggunaan sumber daya, lalu lintas jaringan, dan statistik kinerja Install &amp; Setup SNMP Install SNMP sudo apt-get update sudo apt-get install -y snmpd Cek Status snmp sudo systemctl status snmpd Setup snmp Copy configurasi default menjadi backup sudo cp /etc/snmp/snmpd.conf /etc/snmp/snmpd.conf.backup Siapkan username, password dan encryption Edit file /etc/snmp/snmpd.conf menggunakan vi atau nano sudo vi /etc/snmp/snmpd.conf Tambahkan di file /etc/snmp/snmpd.conf createUser &lt;username&gt; MD5 &lt;passwort&gt; DES &lt;encription&gt; rouser &lt;user&gt; priv setelah ditambahkan bagian snmpv3 menjadi: ############################################################## # SNMPv3 AUTHENTICATION # Note that these particular settings don&#39;t actually belong here. # They should be copied to the file /var/lib/snmp/snmpd.conf # and the passwords changed, before being uncommented in that file *only*. # Then restart the agent # createUser authOnlyUser MD5 &#34;remember to change this password&#34; # createUser authPrivUser SHA &#34;remember to change this one too&#34; DES # createUser internalUser MD5 &#34;this is only ever used internally, but still change the password&#34; createUser &lt;username&gt; MD5 &lt;passwort&gt; DES &lt;encription&gt; rouser &lt;user&gt; priv # If you also change the usernames (which might be sensible), # then remember to update the other occurances in this example config file to match. ############################################################## restart service snmp systemctl restart snmpd systemctl status snmpd">
+  <meta name="twitter:title" content="Disaster Recovery: Memahami RPO, RTO, WRT, dan MTD">
+  <meta name="twitter:description" content="1. Pendahuluan Apa itu Disaster Recovery? Disaster Recovery (DR) adalah strategi dan proses yang digunakan untuk memulihkan sistem IT dan operasi bisnis setelah terjadi gangguan atau bencana. Mengapa Disaster Recovery penting? Melindungi data dan layanan kritis dari kehilangan atau downtime yang berkepanjangan. Meminimalkan dampak finansial dan operasional akibat insiden tak terduga. 2. Konsep Kunci dalam Disaster Recovery Dalam strategi Disaster Recovery, terdapat beberapa metrik utama yang digunakan untuk mengukur efektivitas pemulihan, yaitu RPO (Recovery Point Objective), RTO (Recovery Time Objective), WRT (Work Recovery Time), dan MTD (Maximum Tolerable Downtime).">
 
 
 <link rel="stylesheet" href="/bootstrap-5/css/bootstrap.min.css" media="all"><link rel="stylesheet" href="/css/header.css" media="all">
@@ -137,7 +134,7 @@ Memantau kinerja jaringan Mengidentifikasi masalah Mengelola perangkat jaringan 
   
 
   <title>
-How to Install SNMP in Ubuntu | Donni Triosa
+Disaster Recovery: Memahami RPO, RTO, WRT, dan MTD | Donni Triosa
 
   </title>
 </head>
@@ -285,13 +282,13 @@ How to Install SNMP in Ubuntu | Donni Triosa
       <div class="col-sm-12 col-md-12 col-lg-9" id="box">
         <div class="pr-lg-4">
           <div class="title mb-5">
-            <h1 class="text-center mb-4">How to Install SNMP in Ubuntu</h1>
+            <h1 class="text-center mb-4">Disaster Recovery: Memahami RPO, RTO, WRT, dan MTD</h1>
             <div class="text-center">
               
                 Donni Triosa
                 <small>|</small>
               
-              Feb 26, 2024
+              Mar 10, 2024
 
               
               <span id="readingTime">
@@ -302,64 +299,203 @@ How to Install SNMP in Ubuntu | Donni Triosa
           </div>
           
           <article class="page-content  p-2">
-          <h2 id="deskripsi">Deskripsi</h2>
-<p><strong>SNMP</strong> adalah singkatan dari Simple Network Management Protocol, yaitu protokol standar internet untuk memantau dan mengelola perangkat jaringan. SNMP digunakan untuk berbagai perangkat jaringan, seperti router, switch, server, dan kamera CCTV.</p>
-<h2 id="manfaat-snmp">Manfaat SNMP</h2>
-<p>SNMP memiliki beberapa manfaat, antara lain:</p>
+          <h2 id="1-pendahuluan"><strong>1. Pendahuluan</strong></h2>
 <ul>
-<li>Memantau kinerja jaringan</li>
-<li>Mengidentifikasi masalah</li>
-<li>Mengelola perangkat jaringan</li>
-<li>Mengontrol perangkat jaringan secara jarak jauh</li>
-<li>Mengumpulkan informasi tentang status perangkat, penggunaan sumber daya, lalu lintas jaringan, dan statistik kinerja</li>
+<li><strong>Apa itu Disaster Recovery?</strong>
+<ul>
+<li>Disaster Recovery (DR) adalah strategi dan proses yang digunakan untuk memulihkan sistem IT dan operasi bisnis setelah terjadi gangguan atau bencana.</li>
 </ul>
-<h2 id="install--setup-snmp">Install &amp; Setup SNMP</h2>
-<ol>
-<li>Install SNMP
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo apt-get update
-</span></span><span style="display:flex;"><span>sudo apt-get install -y snmpd
-</span></span></code></pre></div></li>
-<li>Cek Status snmp
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo systemctl status snmpd
-</span></span></code></pre></div></li>
-<li>Setup snmp
+</li>
+<li><strong>Mengapa Disaster Recovery penting?</strong>
 <ul>
-<li>Copy configurasi default menjadi backup
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo cp /etc/snmp/snmpd.conf /etc/snmp/snmpd.conf.backup
-</span></span></code></pre></div></li>
-<li>Siapkan username, password dan encryption</li>
-<li>Edit file /etc/snmp/snmpd.conf menggunakan vi atau nano
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo vi /etc/snmp/snmpd.conf
-</span></span></code></pre></div></li>
-<li>Tambahkan di file /etc/snmp/snmpd.conf
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>createUser &lt;username&gt; MD5 &lt;passwort&gt; DES &lt;encription&gt;
-</span></span><span style="display:flex;"><span>rouser &lt;user&gt; priv
-</span></span></code></pre></div>setelah ditambahkan bagian snmpv3 menjadi:
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e">##############################################################</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># SNMPv3 AUTHENTICATION</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># Note that these particular settings don&#39;t actually belong here.</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># They should be copied to the file /var/lib/snmp/snmpd.conf</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># and the passwords changed, before being uncommented in that file *only*.</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># Then restart the agent</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># createUser authOnlyUser MD5 &#34;remember to change this password&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># createUser authPrivUser SHA &#34;remember to change this one too&#34; DES</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># createUser internalUser MD5 &#34;this is only ever used internally, but still change the password&#34;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>createUser &lt;username&gt; MD5 &lt;passwort&gt; DES &lt;encription&gt;
-</span></span><span style="display:flex;"><span>rouser &lt;user&gt; priv
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># If you also change the usernames (which might be sensible),</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># then remember to update the other occurances in this example config file to match.</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">##############################################################</span>
-</span></span></code></pre></div></li>
-<li>restart service snmp
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>systemctl restart snmpd
-</span></span><span style="display:flex;"><span>systemctl status snmpd
-</span></span></code></pre></div></li>
+<li>Melindungi data dan layanan kritis dari kehilangan atau downtime yang berkepanjangan.</li>
+<li>Meminimalkan dampak finansial dan operasional akibat insiden tak terduga.</li>
+</ul>
+</li>
+</ul>
+<h2 id="2-konsep-kunci-dalam-disaster-recovery"><strong>2. Konsep Kunci dalam Disaster Recovery</strong></h2>
+<p>Dalam strategi Disaster Recovery, terdapat beberapa metrik utama yang digunakan untuk mengukur efektivitas pemulihan, yaitu <strong>RPO (Recovery Point Objective), RTO (Recovery Time Objective), WRT (Work Recovery Time), dan MTD (Maximum Tolerable Downtime).</strong></p>
+<h3 id="a-business-impact-analysis-bia"><strong>A. Business Impact Analysis (BIA)</strong></h3>
+<ul>
+<li><strong>Definisi:</strong>
+<ul>
+<li>Business Impact Analysis (BIA) adalah proses evaluasi dampak operasional dan finansial dari gangguan terhadap bisnis.</li>
+</ul>
+</li>
+<li><strong>Manfaat:</strong>
+<ul>
+<li>Mengidentifikasi sistem dan proses kritis.</li>
+<li>Menentukan prioritas pemulihan berdasarkan dampak bisnis.</li>
+<li>Membantu dalam menetapkan RPO, RTO, WRT, dan MTD yang realistis.</li>
+</ul>
+</li>
+</ul>
+<h3 id="b-recovery-point-objective-rpo"><strong>B. Recovery Point Objective (RPO)</strong></h3>
+<ul>
+<li><strong>Definisi:</strong>
+<ul>
+<li>RPO adalah batas waktu maksimum di mana data dapat hilang akibat insiden sebelum menyebabkan dampak signifikan bagi bisnis.</li>
+</ul>
+</li>
+<li><strong>Contoh:</strong>
+<ul>
+<li>Jika RPO ditetapkan 4 jam, maka sistem harus memiliki cadangan (backup) yang tidak lebih lama dari 4 jam sebelum insiden terjadi.</li>
+</ul>
+</li>
+</ul>
+<h3 id="c-recovery-time-objective-rto"><strong>C. Recovery Time Objective (RTO)</strong></h3>
+<ul>
+<li><strong>Definisi:</strong>
+<ul>
+<li>RTO adalah waktu maksimum yang diperbolehkan untuk memulihkan sistem setelah gangguan terjadi.</li>
+</ul>
+</li>
+<li><strong>Contoh:</strong>
+<ul>
+<li>Jika RTO adalah 2 jam, maka sistem harus kembali beroperasi dalam waktu maksimal 2 jam setelah kegagalan.</li>
+</ul>
+</li>
+</ul>
+<h3 id="d-work-recovery-time-wrt"><strong>D. Work Recovery Time (WRT)</strong></h3>
+<ul>
+<li><strong>Definisi:</strong>
+<ul>
+<li>WRT adalah waktu yang dibutuhkan untuk memastikan bahwa sistem yang telah dipulihkan benar-benar dapat digunakan kembali oleh pengguna.</li>
+</ul>
+</li>
+<li><strong>Contoh:</strong>
+<ul>
+<li>Setelah sistem pulih dalam 2 jam (RTO), mungkin diperlukan tambahan 1 jam untuk memastikan aplikasi berjalan dengan baik dan pengguna bisa bekerja kembali.</li>
+</ul>
+</li>
+</ul>
+<h3 id="e-maximum-tolerable-downtime-mtd"><strong>E. Maximum Tolerable Downtime (MTD)</strong></h3>
+<ul>
+<li><strong>Definisi:</strong>
+<ul>
+<li>MTD adalah waktu maksimum yang dapat ditoleransi sebelum dampak bencana menjadi tidak dapat diterima.</li>
+</ul>
+</li>
+<li><strong>Formula:</strong>
+<ul>
+<li>MTD = RTO + WRT</li>
+</ul>
+</li>
+<li><strong>Contoh:</strong>
+<ul>
+<li>Jika total waktu pemulihan dan kesiapan operasional adalah 5 jam, maka MTD organisasi tidak boleh lebih dari 5 jam.</li>
+</ul>
+</li>
+</ul>
+<h2 id="3-disaster-recovery-site"><strong>3. Disaster Recovery Site</strong></h2>
+<ul>
+<li><strong>Definisi:</strong>
+<ul>
+<li>Disaster Recovery Site adalah lokasi alternatif yang digunakan untuk memulihkan sistem dan operasi bisnis saat terjadi gangguan besar.</li>
+</ul>
+</li>
+<li><strong>Jenis DR Site:</strong>
+<ul>
+<li><strong>Hot Site:</strong> Lokasi yang selalu aktif dan siap digunakan segera.</li>
+<li><strong>Warm Site:</strong> Lokasi dengan infrastruktur dasar yang memerlukan konfigurasi sebelum digunakan.</li>
+<li><strong>Cold Site:</strong> Lokasi yang hanya memiliki fasilitas fisik tanpa sistem atau data yang siap pakai.</li>
+</ul>
+</li>
+</ul>
+<h2 id="4-diagram-hubungan-rpo-rto-wrt-dan-mtd"><strong>4. Diagram Hubungan RPO, RTO, WRT, dan MTD</strong></h2>
+<p><em>(Opsional: Masukkan diagram untuk menggambarkan hubungan antara keempat metrik ini.)</em></p>
+<h2 id="5-implementasi-disaster-recovery-yang-efektif"><strong>5. Implementasi Disaster Recovery yang Efektif</strong></h2>
+<ul>
+<li><strong>Evaluasi risiko dan kebutuhan bisnis.</strong></li>
+<li><strong>Menentukan RPO, RTO, WRT, dan MTD berdasarkan criticality sistem.</strong></li>
+<li><strong>Menerapkan backup yang sesuai dengan RPO.</strong></li>
+<li><strong>Menggunakan infrastruktur redundan untuk memenuhi RTO.</strong></li>
+<li><strong>Melakukan uji coba berkala terhadap rencana pemulihan.</strong></li>
+</ul>
+<h2 id="6-testing--continuous-improvement"><strong>6. Testing &amp; Continuous Improvement</strong></h2>
+<ul>
+<li><strong>Definisi:</strong>
+<ul>
+<li>Pengujian berkala terhadap strategi Disaster Recovery untuk memastikan efektivitasnya.</li>
+</ul>
+</li>
+<li><strong>Metode Testing:</strong>
+<ul>
+<li><strong>Tabletop Exercise:</strong> Simulasi berbasis diskusi untuk mengevaluasi respons tim.</li>
+<li><strong>Simulation Test:</strong> Pengujian skenario insiden dalam lingkungan uji.</li>
+<li><strong>Full-scale Test:</strong> Pengujian penuh dengan failover ke DR site.</li>
+</ul>
+</li>
+<li><strong>Continuous Improvement:</strong>
+<ul>
+<li>Mengevaluasi hasil pengujian dan memperbarui strategi DR sesuai kebutuhan.</li>
+</ul>
+</li>
+</ul>
+<h2 id="7-contoh-kasus"><strong>7. Contoh Kasus</strong></h2>
+<h3 id="kasus-serangan-ransomware-di-perusahaan-xyz"><strong>Kasus: Serangan Ransomware di Perusahaan XYZ</strong></h3>
+<h4 id="latar-belakang"><strong>Latar Belakang:</strong></h4>
+<p>Perusahaan XYZ adalah perusahaan e-commerce yang bergantung pada sistem online untuk operasionalnya. Suatu hari, perusahaan mengalami serangan ransomware yang mengenkripsi semua data pelanggan dan transaksi, membuat sistem tidak dapat diakses.</p>
+<h4 id="penerapan-disaster-recovery"><strong>Penerapan Disaster Recovery:</strong></h4>
+<ol>
+<li>
+<p><strong>Business Impact Analysis (BIA)</strong></p>
+<ul>
+<li>Identifikasi sistem kritis: database pelanggan, sistem pembayaran, dan layanan web.</li>
+<li>Dampak finansial: kehilangan potensi pendapatan sebesar $50.000 per jam.</li>
+</ul>
+</li>
+<li>
+<p><strong>Recovery Point Objective (RPO)</strong></p>
+<ul>
+<li>RPO ditetapkan 1 jam, sehingga perusahaan memiliki sistem backup otomatis yang berjalan setiap jam.</li>
+</ul>
+</li>
+<li>
+<p><strong>Recovery Time Objective (RTO)</strong></p>
+<ul>
+<li>RTO ditetapkan 3 jam, sehingga sistem harus kembali online dalam waktu tersebut.</li>
+</ul>
+</li>
+<li>
+<p><strong>Work Recovery Time (WRT)</strong></p>
+<ul>
+<li>WRT adalah 1 jam, diperlukan untuk memastikan data dipulihkan dan diuji sebelum layanan sepenuhnya tersedia.</li>
+</ul>
+</li>
+<li>
+<p><strong>Maximum Tolerable Downtime (MTD)</strong></p>
+<ul>
+<li>MTD ditentukan 4 jam, artinya jika downtime lebih dari 4 jam, bisnis akan mengalami dampak yang tidak dapat diterima.</li>
+</ul>
+</li>
+<li>
+<p><strong>Disaster Recovery Site</strong></p>
+<ul>
+<li>Perusahaan memiliki <strong>warm site</strong> di lokasi berbeda yang dapat digunakan untuk memulihkan data dan menjalankan layanan sementara.</li>
+</ul>
+</li>
+<li>
+<p><strong>Testing &amp; Continuous Improvement</strong></p>
+<ul>
+<li>Perusahaan secara rutin menguji rencana pemulihan melalui simulation test setiap tiga bulan.</li>
+<li>Setelah kejadian ini, mereka meningkatkan frekuensi backup menjadi setiap 30 menit dan menambahkan sistem deteksi anomali.</li>
 </ul>
 </li>
 </ol>
+<h4 id="hasil"><strong>Hasil:</strong></h4>
+<ul>
+<li>Berkat penerapan strategi DR yang baik, sistem kembali online dalam 3,5 jam.</li>
+<li>Perusahaan berhasil menghindari kehilangan data yang signifikan dan menjaga kepercayaan pelanggan.</li>
+</ul>
+<h2 id="8-kesimpulan"><strong>8. Kesimpulan</strong></h2>
+<ul>
+<li>Disaster Recovery bukan hanya tentang backup data, tetapi juga tentang memastikan bisnis tetap berjalan setelah gangguan.</li>
+<li>Memahami dan menerapkan RPO, RTO, WRT, dan MTD adalah kunci dalam membangun strategi pemulihan yang efektif.</li>
+<li>Organisasi harus secara berkala menguji dan memperbarui strategi Disaster Recovery untuk memastikan kesiapan menghadapi bencana.</li>
+</ul>
+<blockquote>
+<p><em>&ldquo;Disaster Recovery bukan sekadar rencana, tetapi komitmen untuk memastikan bahwa setiap gangguan bukanlah akhir dari bisnis, melainkan awal dari kesiapan yang lebih baik.&rdquo;</em></p></blockquote>
 
           </article>
         </div>
@@ -374,9 +510,26 @@ How to Install SNMP in Ubuntu | Donni Triosa
               <div class="toc-content">
                 <nav id="TableOfContents">
   <ul>
-    <li><a href="#deskripsi">Deskripsi</a></li>
-    <li><a href="#manfaat-snmp">Manfaat SNMP</a></li>
-    <li><a href="#install--setup-snmp">Install &amp; Setup SNMP</a></li>
+    <li><a href="#1-pendahuluan"><strong>1. Pendahuluan</strong></a></li>
+    <li><a href="#2-konsep-kunci-dalam-disaster-recovery"><strong>2. Konsep Kunci dalam Disaster Recovery</strong></a>
+      <ul>
+        <li><a href="#a-business-impact-analysis-bia"><strong>A. Business Impact Analysis (BIA)</strong></a></li>
+        <li><a href="#b-recovery-point-objective-rpo"><strong>B. Recovery Point Objective (RPO)</strong></a></li>
+        <li><a href="#c-recovery-time-objective-rto"><strong>C. Recovery Time Objective (RTO)</strong></a></li>
+        <li><a href="#d-work-recovery-time-wrt"><strong>D. Work Recovery Time (WRT)</strong></a></li>
+        <li><a href="#e-maximum-tolerable-downtime-mtd"><strong>E. Maximum Tolerable Downtime (MTD)</strong></a></li>
+      </ul>
+    </li>
+    <li><a href="#3-disaster-recovery-site"><strong>3. Disaster Recovery Site</strong></a></li>
+    <li><a href="#4-diagram-hubungan-rpo-rto-wrt-dan-mtd"><strong>4. Diagram Hubungan RPO, RTO, WRT, dan MTD</strong></a></li>
+    <li><a href="#5-implementasi-disaster-recovery-yang-efektif"><strong>5. Implementasi Disaster Recovery yang Efektif</strong></a></li>
+    <li><a href="#6-testing--continuous-improvement"><strong>6. Testing &amp; Continuous Improvement</strong></a></li>
+    <li><a href="#7-contoh-kasus"><strong>7. Contoh Kasus</strong></a>
+      <ul>
+        <li><a href="#kasus-serangan-ransomware-di-perusahaan-xyz"><strong>Kasus: Serangan Ransomware di Perusahaan XYZ</strong></a></li>
+      </ul>
+    </li>
+    <li><a href="#8-kesimpulan"><strong>8. Kesimpulan</strong></a></li>
   </ul>
 </nav>
               </div>
@@ -388,17 +541,21 @@ How to Install SNMP in Ubuntu | Donni Triosa
             <h5>Tags</h5>
             <ul class="tags-ul list-unstyled list-inline">
               
-              <li class="list-inline-item"><a href="https://donnitriosa.github.io/tags/snmp"
+              <li class="list-inline-item"><a href="http://localhost:1313/tags/disaster-rocovery"
                 target="_blank"
-              >snmp</a></li>
+              >Disaster Rocovery</a></li>
               
-              <li class="list-inline-item"><a href="https://donnitriosa.github.io/tags/ubuntu"
+              <li class="list-inline-item"><a href="http://localhost:1313/tags/rpo-rto-wrt-dan-mtd"
                 target="_blank"
-              >ubuntu</a></li>
+              >RPO, RTO, WRT, dan MTD</a></li>
               
-              <li class="list-inline-item"><a href="https://donnitriosa.github.io/tags/installasi"
+              <li class="list-inline-item"><a href="http://localhost:1313/tags/dr-site"
                 target="_blank"
-              >installasi</a></li>
+              >DR-Site</a></li>
+              
+              <li class="list-inline-item"><a href="http://localhost:1313/tags/bia"
+                target="_blank"
+              >BIA</a></li>
               
             </ul>
           </aside>
@@ -410,22 +567,22 @@ How to Install SNMP in Ubuntu | Donni Triosa
             <div class="social-content">
               <ul class="list-inline">
                 <li class="list-inline-item text-center">
-                  <a target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fdonnitriosa.github.io%2fblogs%2fsnmp%2f">
+                  <a target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url=http%3a%2f%2flocalhost%3a1313%2fblogs%2fdisaster-recovery%2f">
                     <i class="fab fa-linkedin"></i>
                   </a>
                 </li>
                 <li class="list-inline-item text-center">
-                  <a target="_blank" href="https://twitter.com/share?text=How%20to%20Install%20SNMP%20in%20Ubuntu&url=https%3a%2f%2fdonnitriosa.github.io%2fblogs%2fsnmp%2f">
+                  <a target="_blank" href="https://twitter.com/share?text=Disaster%20Recovery%3a%20Memahami%20RPO%2c%20RTO%2c%20WRT%2c%20dan%20MTD&url=http%3a%2f%2flocalhost%3a1313%2fblogs%2fdisaster-recovery%2f">
                     <i class="fab fa-twitter"></i>
                   </a>
                 </li>
                 <li class="list-inline-item text-center">
-                  <a target="_blank" href="https://api.whatsapp.com/send?text=How%20to%20Install%20SNMP%20in%20Ubuntu: https%3a%2f%2fdonnitriosa.github.io%2fblogs%2fsnmp%2f">
+                  <a target="_blank" href="https://api.whatsapp.com/send?text=Disaster%20Recovery%3a%20Memahami%20RPO%2c%20RTO%2c%20WRT%2c%20dan%20MTD: http%3a%2f%2flocalhost%3a1313%2fblogs%2fdisaster-recovery%2f">
                     <i class="fab fa-whatsapp"></i>
                   </a>
                 </li>
                 <li class="list-inline-item text-center">
-                  <a target="_blank" href='mailto:?subject=How%20to%20Install%20SNMP%20in%20Ubuntu&amp;body=Check%20out%20this%20site https%3a%2f%2fdonnitriosa.github.io%2fblogs%2fsnmp%2f'>
+                  <a target="_blank" href='mailto:?subject=Disaster%20Recovery%3a%20Memahami%20RPO%2c%20RTO%2c%20WRT%2c%20dan%20MTD&amp;body=Check%20out%20this%20site http%3a%2f%2flocalhost%3a1313%2fblogs%2fdisaster-recovery%2f'>
                     <i class="fa fa-envelope"></i>
                   </a>
                 </li>
@@ -504,6 +661,33 @@ How to Install SNMP in Ubuntu | Donni Triosa
             <div class="card h-100">
                 
                 <div class="card-body bg-transparent p-3 shadow-sm">
+                    <a href="/blogs/disaster-recovery/" class="primary-font card-title">
+                        <h5 class="card-title bg-transparent" title="Disaster Recovery: Memahami RPO, RTO, WRT, dan MTD">Disaster Recovery: …</h5>
+                    </a>
+                    <div class="card-text secondary-font">
+                        <p><h2 id="1-pendahuluan"><strong>1. Pendahuluan</strong></h2>
+<ul>
+<li><strong>Apa itu Disaster Recovery?</strong>
+<ul>
+<li>Disaster Recovery (DR) adalah strategi dan proses yang digunakan untuk memulihkan sistem IT dan operasi bisnis setelah terjadi gangguan atau bencana.</li>
+</ul>
+</li>
+<li><strong>Mengapa Disaster Recovery penting?</strong>
+<ul>
+<li>Melindungi data dan layanan kritis dari kehilangan atau downtime …</li></ul></li></li></ul></li></ul></p>
+                    </div>
+                </div>
+                <div class="mt-auto card-footer">
+                    <span class="float-start">Mar 10, 2024</span>
+                    <a href="/blogs/disaster-recovery/" class="float-end btn btn-outline-info btn-sm">Read</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-lg-4 col-md-6 pt-2">
+            <div class="card h-100">
+                
+                <div class="card-body bg-transparent p-3 shadow-sm">
                     <a href="/blogs/snmp/" class="primary-font card-title">
                         <h5 class="card-title bg-transparent" title="How to Install SNMP in Ubuntu">How to Install SNMP in …</h5>
                     </a>
@@ -577,7 +761,7 @@ How to Install SNMP in Ubuntu | Donni Triosa
         <div class="col-md-4 text-center">
             
                 <div class="pb-2">
-                    <a href="https://donnitriosa.github.io/" title="Donni Triosa">
+                    <a href="http://localhost:1313/" title="Donni Triosa">
                         <img alt="Footer logo" src="/main/fav.png"
                             height="40px" width="40px">
                     </a>
