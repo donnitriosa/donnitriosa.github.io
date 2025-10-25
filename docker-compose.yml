@@ -1,0 +1,21 @@
+version: "3.8"
+
+services:
+  hugo-website:
+    build: .
+    container_name: my-hugo-website
+    ports:
+      - "8080:80"
+    restart: unless-stopped
+    environment:
+      - NGINX_HOST=localhost
+      - NGINX_PORT=80
+    volumes:
+      # Optional: Mount a custom nginx config if you want to make changes without rebuilding
+      # - ./nginx.conf:/etc/nginx/conf.d/default.conf:ro
+    networks:
+      - hugo-network
+
+networks:
+  hugo-network:
+    driver: bridge
